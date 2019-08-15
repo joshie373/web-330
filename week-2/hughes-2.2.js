@@ -2,8 +2,8 @@
 ============================================
 ; Title:  hughes-2.2.js
 ; Author: Joshua Hughes
-; Date:   13 August 2019
-; Description: Prototypes
+; Date:   14 August 2019
+; Description: demonstrates Prototype pattern of objects
 ;===========================================
 */
 
@@ -32,12 +32,14 @@ console.log(header.display("Joshua", "Hughes", "Exercise 2.2"));
 console.log("\n");
 //===============header include======================
 
+//person object
 var person = {
     getAge: function(){
         return this.age;
     }
 };
 
+//protoype object
 var josh = Object.create(person, {
 
     "age": {
