@@ -1,0 +1,41 @@
+<!-- 
+============================================
+; Title:  hughes-4.3.html
+; Author: Richard Krasso
+; Date:   27 August 2019
+; Modified by: Joshua Hughes
+; Description: Demonstrates HTTP methods(Delete and put)
+;===========================================
+
+ -->
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Exercise 4.3</title>
+
+    <!-- jQuery reference -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+<button id="btnDelete">Delete form</button>
+<script>
+
+    $(function() {
+        $("#btnDelete").click(function(){
+            $.ajax({
+                url: "http://httpbin.org/delete",
+                dataType: "json",
+                type: "DELETE",
+                data: {firstName: "Joshua", lastName: "Hughes", email: "joshughes@my365.bellevue.edu"},
+                success: function(data,status) {
+                    console.log("The following fields were deleted:\n==============================\nFirst name: " + data.form.firstName + "\nLast Name: " +
+                    data.form.lastName + "\nEmail: " + data.form.email+"\n===============================\nStatus: "+status);
+                }
+            })
+        });
+    });
+
+</script>
+
+
+</body></html>
