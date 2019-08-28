@@ -1,0 +1,42 @@
+<!-- 
+============================================
+; Title:  hughes-4.2.js
+; Author: Richard Krasso
+; Date:   27 August 2019
+; Modified by: Joshua Hughes
+; Description: Demonstrates HTTP methods(GET and POST)
+;===========================================
+
+ -->
+
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Exercise 4.2</title>
+
+    <!-- jQuery reference -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <h4>HTTP GET Request</h4>
+    <button id="btnDogs">Get Random Breed</button><br><br><br>
+    <img width="500px" height="500px" id="breed" alt="">
+    
+<script>
+
+    $(function() {
+        $("#btnDogs").click(function(){
+            $.get("https://dog.ceo/api/breeds/image/random",function(data, status){
+                console.log("Data: "+JSON.stringify(data) + "\nStatus: "+ status);
+
+                //take the image returned from the get request, and set it as the img source
+                $("#breed").attr('src',data.message);
+            });
+        });
+    });
+
+</script>
+
+
+</body></html>
