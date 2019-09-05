@@ -1,0 +1,45 @@
+<!-- /*
+============================================
+; Title:  hughes-5.2.js
+; Author: Richard Krasso
+; Date:   4 September 2019
+; Modified by: Joshua Hughes
+; Description: demonstrates the proxy pattern
+;===========================================
+*/ -->
+
+
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Exercise 5.2 - The Proxy Pattern</title>
+
+    <!-- jquery Reference Library -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<!-- Example 1 -->
+<div class="text-center">
+        <h2 class="h2">Show me a house</h2>
+        <button class="btn-primary" id="btnProxy">Get House</button><br>
+        <span id="houseSpan"></span>
+        
+        <script>
+            var house = {
+                beds: Math.floor((Math.random() * 4) + 1),
+                baths: Math.floor((Math.random() * 3) + 1),
+                price: "350,000",
+                display: function() {
+                    $("#houseSpan").html("");
+                    $("#houseSpan").append("<br><b>" + this.beds + "</b> Bedrooms <br><b>" + this.baths + "</b> Bathrooms<br>Listing Price: <b>$"
+                    + this.price + "</b>");
+                }
+            };
+            $("#btnProxy").click($.proxy(house, "display"));
+            
+        </script>
+</div>
+
+</body>
+</html>
